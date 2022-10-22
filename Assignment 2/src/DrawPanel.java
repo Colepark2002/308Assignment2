@@ -1,16 +1,35 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Stack;
 
 public class DrawPanel extends JPanel implements MouseListener {
+    int x;
+    int y;
+    Stack<Circle> stack;
 
     public DrawPanel(){
-        super();
+        addMouseListener(this);
+        stack = new Stack<>();
     }
 
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+
+        if (!stack.isEmpty()){
+            for (Circle circle : stack){
+                g.setColor(circle.getColor());
+                g.fillOval(circle.getX(), circle.getY(), 10 ,10);
+            }
+        }
+    }
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        x = e.getX();
+        y = e.getY();
+        stack.push(new Circle(x, y, Color.BLACK));
+        repaint();
     }
 
     @Override
