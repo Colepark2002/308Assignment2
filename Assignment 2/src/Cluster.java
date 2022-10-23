@@ -62,6 +62,8 @@ public class Cluster {
             q = q.makeCluster(stacktmp, Color.RED, Color.BLUE, f[0], f[1]);
         }
         stacktmp.clear();
+        //stacktmp.add(f[0]);
+        //stacktmp.add(f[1]);
         stacktmp.addAll(q.stack1);
         stacktmp.addAll(q.stack2);
         return stacktmp;

@@ -89,7 +89,15 @@ public class Main extends JFrame implements ActionListener {
                 avgX = avgX/cPanel.getStack().size();
                 avgY = avgY/cPanel.getStack().size();
                 q = q.makeCluster(cPanel.getStack(), Color.RED, Color.BLUE, new Circle(avgX+1,
-                        avgY+1, Color.BLACK), new Circle(avgY-1, avgY-1, Color.BLACK));
+                        avgY-1, Color.BLACK), new Circle(avgY-1, avgY+1, Color.BLACK));
+                if(q.stack2.size() == 0 || q.stack1.size() == 0){
+                    q = q.makeCluster(cPanel.getStack(), Color.RED, Color.BLUE, new Circle(avgX,
+                            500, Color.BLACK), new Circle(avgY, 0, Color.BLACK));
+                    if(q.stack2.size() == 0 || q.stack1.size() == 0){
+                        q = q.makeCluster(cPanel.getStack(), Color.RED, Color.BLUE, new Circle(0,
+                                avgY, Color.BLACK), new Circle(500, avgY, Color.BLACK));
+                    }
+                }
                 Stack<Circle> pog = new Stack<Circle>();
                 pog = q.kMean(q);
                 cPanel.setStack(pog);
