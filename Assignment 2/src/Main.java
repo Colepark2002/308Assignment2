@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Stack;
 
 public class Main extends JFrame implements ActionListener {
 
@@ -79,9 +80,19 @@ public class Main extends JFrame implements ActionListener {
         {
             if(clusterBool)
             {
-                Cluster clust = new Cluster();
-                clust.makeCluster(cPanel.getStack(), Color.BLUE, Color.ORANGE);
-                cPanel.setStack(clust.getStack1());
+                Cluster q = new Cluster();
+                int avgX = 0, avgY = 0;
+                for(Circle c: cPanel.getStack()){
+                    avgX += c.getX();
+                    avgY += c.getY();
+                }
+                avgX = avgX/cPanel.getStack().size();
+                avgY = avgY/cPanel.getStack().size();
+                q = q.makeCluster(cPanel.getStack(), Color.RED, Color.BLUE, new Circle(avgX+1,
+                        avgY+1, Color.BLACK), new Circle(avgY-1, avgY-1, Color.BLACK));
+                Stack<Circle> pog = new Stack<Circle>();
+                pog = q.kMean(q);
+                cPanel.setStack(pog);
             }
             if(neighborBool)
             {

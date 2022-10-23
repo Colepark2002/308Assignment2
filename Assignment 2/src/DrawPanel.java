@@ -25,6 +25,7 @@ public class DrawPanel extends JPanel implements MouseListener{
                 g.fillOval(circle.getX(), circle.getY(), 10 ,10);
                 if(circle.getNeighbor() != null)
                 {
+                    g.setColor(Color.ORANGE);
                     g.drawLine(circle.getX()+5,circle.getY()+5,circle.getNeighbor().getX()+5,circle.getNeighbor().getY()+5);
                 }
             }
