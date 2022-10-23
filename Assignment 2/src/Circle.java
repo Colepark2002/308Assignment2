@@ -3,6 +3,8 @@ import java.awt.*;
 public class Circle {
     int x, y;
     Color color;
+    Circle Neighbor;
+    Boolean visited = false;
 
     public Circle(int x, int y, Color color){
         this.x = x;
@@ -24,5 +26,21 @@ public class Circle {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public Circle getNeighbor() {
+        return Neighbor;
+    }
+
+    public void setNeighbor(Circle neighbor) {
+        Neighbor = neighbor;
+    }
+
+    public Boolean getVisited() {
+        return visited;
+    }
+
+    public void setVisited(Boolean visited) {
+        this.visited = visited;
     }
 }

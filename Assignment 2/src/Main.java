@@ -85,6 +85,9 @@ public class Main extends JFrame implements ActionListener {
             }
             if(neighborBool)
             {
+                Line line = new Line();
+                cPanel.setStack(line.nearestNeighbors(cPanel.getStack()));
+
             }
             repaint();
         }
