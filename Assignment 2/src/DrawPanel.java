@@ -4,10 +4,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Stack;
 
-public class DrawPanel extends JPanel implements MouseListener {
+public class DrawPanel extends JPanel implements MouseListener{
     int x;
     int y;
     Stack<Circle> stack;
+
+
 
     public DrawPanel(){
         addMouseListener(this);
@@ -50,5 +52,13 @@ public class DrawPanel extends JPanel implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    public Stack<Circle> getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack<Circle> stack) {
+        this.stack = stack;
     }
 }
