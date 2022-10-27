@@ -1,13 +1,26 @@
 import java.awt.*;
 import java.util.Stack;
 
+/**
+ * @author Van Park
+ * @author Cole Park
+ * @author Jacob Shapero
+ * Assignment #2
+ */
 public class Cluster {
     Stack<Circle> stack1;
     Stack<Circle> stack2;
+
     public Cluster(){
         stack1 = new Stack<Circle>();
         stack2 = new Stack<Circle>();
     }
+
+    /**
+     * This method takes the average of the current made cluster and pushes new centroids to redetermine the cluster
+     * @param g the cluster object that needs to be modified.
+     * @return x returns the new centroid
+     */
     public Circle[] moveKNodes(Cluster g){
             int stack1Size = stack1.size();
             int stack2Size = stack2.size();
@@ -35,6 +48,16 @@ public class Cluster {
             x[1] = new Circle(tmp2MX, tmp2MY, Color.BLACK);
             return x;
     }
+
+    /**
+     * Makes the cluster of circles based on the given centroid.
+     * @param input the stack of circles created by the user.
+     * @param c1 the color of the first cluster
+     * @param c2 the color of the second cluster
+     * @param K1 First centroid
+     * @param K2 Second centroid
+     * @return p the cluster
+     */
     public Cluster makeCluster(Stack<Circle> input, Color c1, Color c2, Circle K1, Circle K2) {
         Cluster p = new Cluster();
         while (input.size() != 0) {
@@ -51,6 +74,12 @@ public class Cluster {
         }
         return p;
     }
+
+    /**
+     * Runs moveKNodes and makeCluster 100,000 times to make efficient clusters
+     * @param q the cluster that is being modified.
+     * @return stacktmp updated stack with modified colors depending on the modified clusters.
+     */
     public Stack<Circle> kMean(Cluster q){
         Stack<Circle> stacktmp = new Stack<Circle>();
         Circle[] f = new Circle[2];

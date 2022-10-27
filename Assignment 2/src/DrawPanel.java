@@ -4,18 +4,26 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Stack;
 
+/**
+ * @author Van Park
+ * @author Cole Park
+ * @author Jacob Shapero
+ * Assignment #2
+ */
 public class DrawPanel extends JPanel implements MouseListener{
     int x;
     int y;
     Stack<Circle> stack;
-
-
 
     public DrawPanel(){
         addMouseListener(this);
         stack = new Stack<>();
     }
 
+    /**
+     * This is the method in charge of creating the circles when the screen is clicked as well as drawing the lines between all of the circles when the line checkbox is filled.
+     * @param g graphics object that is provided by the superclass that allows for drawing on the screen.
+     */
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
@@ -31,6 +39,11 @@ public class DrawPanel extends JPanel implements MouseListener{
             }
         }
     }
+
+    /**
+     * This method is called when the mouse is clicked and is responsible for creating the small circles appearing on the screen.
+     * @param e This is used to get the X and Y positions of the mouse.
+     */
     @Override
     public void mouseClicked(MouseEvent e) {
         x = e.getX();

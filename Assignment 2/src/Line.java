@@ -1,8 +1,20 @@
 import java.awt.*;
 import java.util.Stack;
 
+/**
+ * @author Van Park
+ * @author Cole Park
+ * @author Jacob Shapero
+ * Assignment #2
+ */
 public class Line
 {
+
+    /**
+     * This method takes the user created circles and finds the nearest neighbor for every circle.
+     * @param s the stack of circles created by the user.
+     * @return s the stack of circles with updated neighbor values
+     */
     public Stack<Circle> nearestNeighbors(Stack<Circle> s)
     {
 

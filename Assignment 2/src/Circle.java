@@ -1,5 +1,11 @@
 import java.awt.*;
 
+/**
+ * @author Van Park
+ * @author Cole Park
+ * @author Jacob Shapero
+ * Assignment #2
+ */
 public class Circle {
     int x, y;
     Color color;

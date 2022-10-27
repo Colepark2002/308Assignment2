@@ -4,6 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Stack;
 
+/**
+ * @author Van Park
+ * @author Cole Park
+ * @author Jacob Shapero
+ * Assignment #2
+ */
 public class Main extends JFrame implements ActionListener {
 
     private DrawPanel cPanel;
@@ -47,13 +53,20 @@ public class Main extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * This constructor builds the main window for the program while also maintaining the layout and creating
+     * the two panels. One for the check boxes and run button and the other for the main functioning panel.
+     */
     public static void main(String[] args){
         Main m = new Main();
         m.setSize(600, 600);
         m.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         m.setVisible(true);
     }
-
+    /**
+     * This function takes care of the actionListeners and does the correct command depending on what called the method.
+     * @param e this is the action that called the method.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Cluster")) {
